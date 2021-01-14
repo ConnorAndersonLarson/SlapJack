@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <title>SlapJack</title>
+  </head>
+  <body>
+    <div class="top spacing">
+      <section id="gameUpdates" class="game-updates"> Test
+      </section>
+    </div>
+    <div class="center">
+      <section class="start-menu hidden">
+        <h1 class="title">SlapJack!</h1>
+        <button id="play" class="play" name="play">PLAY!</button>
+        <button id="instructions" class="instruction-button" name="instructions">Instructions</button>
+      </section>
+      <section class="instructions hidden">
+        <section class="instruction">
+        </section>
+        <section class="instruction">
+        </section>
+        <div class="return">
+          <button id="return" class="return-button" name="return">Return</button>
+        </div>
+      </section>
+      <div class="game">
+        <div class="left column">
+          <section id="leftCardDeck" class="left-card deck">
+          </section>
+          <section id="leftWins" class="left-wins wins">
+          </section>
+        </div>
+        <div class="middle column">
+          <section class="middle-card deck">
+        </div>
+        <div class="right column">
+          <section id="rightCardDeck" class="right-card deck">
+          </section>
+          <section id="rightWins" class="right-wins wins">
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="bottom spacing">
+    </div>
+  </body>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="player.js"></script>
+</html>
