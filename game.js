@@ -4,8 +4,8 @@ class Game {
     this.playerTwo = player2;
     this.newDeck = [];
     this.playedCards = [];
-    this.playerTurn = '';
-    this.Winner = '';
+    this.playerTurn = 'Player 1';
+    this.winner = '';
     this.slapResult = '';
   }
 
@@ -31,6 +31,11 @@ class Game {
 
   playerTurn(player) {
     this.playedCards.unshift(player.playCard())
+    if (player === this.playerOne) {
+      this.playerTurn = this.playerTwo
+    } else {
+      this.playerTurn = this.playerOne
+    }
   }
 
   slapCard(player) {
@@ -55,5 +60,14 @@ class Game {
     this.playedCards = [];
   }
 
+  winCheck() {
+    if (this.playerOne.hand === 0) {
+      this.winner = this.playerTwo.name
+    } else if (this.playerTwo.hand === 0) {
+      this.winner = this.playerOne.name
+    }
+  }
+
+  
 
 }
