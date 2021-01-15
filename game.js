@@ -1,10 +1,13 @@
+
+
 class Game {
   constructor(player1, player2) {
     this.playerOne = player1;
     this.playerTwo = player2;
-    this.newDeck = [];
+    this.newDeck = this.shuffle(freshDeck);
     this.playedCards = [];
-    this.playerTurn = 'Player 1';
+    this.topCard = ''
+    this.turn = 'Player 1';
     this.winner = '';
     this.slapResult = '';
   }
@@ -14,27 +17,33 @@ class Game {
   }
 
   shuffle(deck) {
-    for(i = 0; i < 52; i++) {
-      var randCard = deck.splice(randomizer(52 - i));
-      this.newDeck.push(randCard[0]);
+    var tempDeck = deck
+    for (let i = 0; i < 52; i++) {
+      var randCard = tempDeck.splice(this.randomizer(52 - i), 1);
+      tempDeck.push(randCard[0]);
     }
+    return tempDeck
   }
 
   deal() {
-    for (i = 0; i < 26; i++) {
-      var drawnCard = this.newDeck.splice(0,1);
+    var tempDeck = this.newDeck;
+    for (let i = 0; i < 26; i++) {
+      var drawnCard = tempDeck.splice(0,1);
       this.playerOne.hand.push(drawnCard[0]);
-      drawnCard = this.newDeck.splice(0,1);
+      drawnCard = tempDeck.splice(0,1);
+      console.log(drawnCard)
       this.playerTwo.hand.push(drawnCard[0]);
     }
   }
 
   playerTurn(player) {
     this.playedCards.unshift(player.playCard());
-    if (player === this.playerOne) {
-      this.playerTurn = this.playerTwo;
-    } else {
-      this.playerTurn = this.playerOne;
+    if (player.name === this.playerOne.name) {
+      this.turn = this.playerTwo.name;
+      return this.playedCards[0]
+    } else if (player.name === this.playerTwo.name){
+      this.turn = this.playerOne.name;
+      return this.playedCards[0]
     }
   }
 

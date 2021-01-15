@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="styles.css" type="text/css" rel="stylesheet">
     <title>SlapJack</title>
   </head>
@@ -10,12 +11,12 @@
       </section>
     </div>
     <div class="center">
-      <section class="start-menu hidden">
+      <section id="startMenu" class="start-menu">
         <h1 class="title">SlapJack!</h1>
         <button id="play" class="play" name="play">PLAY!</button>
         <button id="instructions" class="instruction-button" name="instructions">Instructions</button>
       </section>
-      <section class="instructions hidden">
+      <section id="instructionMenu" class="instructions hidden">
         <section class="instruction">
         </section>
         <section class="instruction">
@@ -24,7 +25,7 @@
           <button id="return" class="return-button" name="return">Return</button>
         </div>
       </section>
-      <div class="game">
+      <div id="gameWindow" class="game hidden">
         <div class="left column">
           <section id="leftDetails" class="details">
             <h3>Wins: </h3><h3 id="leftWins"> 0</h3>
@@ -37,7 +38,7 @@
           <section id="middleDetails" class="details">
             <h3>Cards in Pile:</h3><h3 id="cardsinPile">0</h3>
           </section>
-          <section class="middle-card deck">
+          <section id="playedPile" class="middle-card deck">
         </div>
         <div class="right column">
           <section id="rightDetails" class="details">
@@ -55,4 +56,5 @@
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="deck.js"></script>
 </html>

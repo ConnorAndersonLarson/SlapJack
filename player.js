@@ -10,7 +10,7 @@ class Player {
   }
 
   playCard() {
-    var drawnCard=this.hand.splice(0,1);
+    var drawnCard = this.hand.splice(0,1);
     return drawnCard[0];
   }
 
