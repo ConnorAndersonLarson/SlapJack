@@ -17,7 +17,7 @@ class Game {
   }
 
   shuffle(deck) {
-    var tempDeck = deck
+    var tempDeck = [...deck];
     for (let i = 0; i < 52; i++) {
       var randCard = tempDeck.splice(this.randomizer(52 - i), 1);
       tempDeck.push(randCard[0]);
@@ -31,49 +31,64 @@ class Game {
       var drawnCard = tempDeck.splice(0,1);
       this.playerOne.hand.push(drawnCard[0]);
       drawnCard = tempDeck.splice(0,1);
-      console.log(drawnCard)
       this.playerTwo.hand.push(drawnCard[0]);
     }
   }
 
   playerTurn(player) {
-    this.playedCards.unshift(player.playCard());
-    if (player.name === this.playerOne.name) {
+    if (player.name === this.playerOne.name && this.playerOne.hand[0]) {
+      this.playedCards.unshift(player.playCard());
       this.turn = this.playerTwo.name;
       return this.playedCards[0]
-    } else if (player.name === this.playerTwo.name){
+    } else if (player.name === this.playerTwo.name && this.playerTwo.hand[0]){
+      this.playedCards.unshift(player.playCard());
       this.turn = this.playerOne.name;
       return this.playedCards[0]
+    } else {
+      this.winCheck()
     }
+
   }
 
   slapCard(player) {
     if (this.playedCards[0].name === 'jack') {
-      this.slapResult = '';
+      this.slapResult = '1';
       this.slapJack(player);
-    } else if (this.playedCards[0] === this.playedCards[1]) {
-      this.slapResult = '';
+    } else if (this.playedCards[1] && this.playedCards[0].name === this.playedCards[1].name) {
+      this.slapResult = '2';
       this.slapJack(player);
-    } else if (this.playedCards[0] === this.playedCards[2]) {
-      this.slapResult = '';
+    } else if (this.playedCards[2] && this.playedCards[0].name === this.playedCards[2].name) {
+      this.slapResult = '3';
       this.slapJack(player);
     } else {
-
+      this.slapResult = ''
+      this.badSlap(player)
     }
   }
 
   slapJack(player) {
     for (let i = 0; i < this.playedCards.length; i++) {
-      [player].hand.push(this.playedCards[i]);
+      player.hand.push(this.playedCards[i]);
     }
     this.playedCards = [];
   }
 
+  badSlap(player) {
+    var givenCard = player.hand.splice(0,1)
+    if (player.name === this.playerOne.name) {
+      this.playerTwo.hand.push(givenCard[0])
+    } else if (player.name === this.playerTwo.name) {
+      this.playerOne.hand.push(givenCard[0])
+    }
+  }
+
   winCheck() {
-    if (this.playerOne.hand === 0) {
+    if (this.playerOne.hand.length === 0) {
       this.winner = this.playerTwo.name;
-    } else if (this.playerTwo.hand === 0) {
+       playedCard.innerHTML = `<h2>${this.playerTwo.name} wins!</h2>`
+    } else if (this.playerTwo.hand.length === 0) {
       this.winner = this.playerOne.name;
+       playedCard.innerHTML = `<h2>${this.playerOne.name} wins!</h2>`
     }
   }
 

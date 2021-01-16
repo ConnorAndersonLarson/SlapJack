@@ -4,12 +4,11 @@ var homeScreen = document.querySelector('#startMenu')
 var instScreen = document.querySelector('#instructionMenu')
 var gameScreen = document.querySelector('#gameWindow')
 var playedCard = document.querySelector('#playedPile')
+var cardCount = document.querySelector('#cardsInPile')
 
 homeScreen.addEventListener('click', homeScreenPress)
 instScreen.addEventListener('click', returnHome)
 document.addEventListener('keydown', playerPress)
-
-//window.addEventListener('onload', makeGame);
 
 function homeScreenPress() {
   if (event.target.id === 'play') {
@@ -28,13 +27,24 @@ function returnHome() {
 function playerPress(key) {
   var yourCard = '';
   if (game.turn === 'Player 1' && key.key === 'q') {
-    yourCard = game.playerTurn(game.playerOne)
-    playedCard.innerHTML = yourCard.image;
+    game.playerTurn(game.playerOne)
   } else if (game.turn === 'Player 2' && key.key === 'p') {
-    yourCard = game.playerTurn(game.playerTwo)
-    playedCard.innerHTML = yourCard.image;
+    game.playerTurn(game.playerTwo)
+  } else if (game.turn && key.key === 'f' && game.playedCards[0]) {
+    game.slapCard(game.playerOne)
+  } else if (game.turn && key.key === 'j' && game.playedCards[0]) {
+    game.slapCard(game.playerTwo)
   }
+  updateCardCount()
+}
 
+function updateCardCount() {
+  cardCount.innerText = game.playedCards.length;
+  if (game.playedCards[0]) {
+    playedCard.innerHTML = game.playedCards[0].image
+  } else {
+    playedCard.innerHTML = ''
+  }
 }
 
 function startGame() {
