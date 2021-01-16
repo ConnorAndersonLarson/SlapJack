@@ -1,4 +1,6 @@
 body {
+  font-family: 'Lato', sans-serif;
+  background-color: #2d0f4b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +12,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   min-height: 20%;
   box-sizing: border-box;
 }
 
 .center {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   min-height: 60%;
   box-sizing: border-box;
@@ -27,6 +29,7 @@ body {
 }
 
 .start-menu {
+  color: #fc6262;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +43,7 @@ body {
 
 .title {
   margin-bottom: 75px;
+  font-size: 75px
 }
 
 .instructions {
@@ -78,7 +82,8 @@ body {
 }
 
 .column {
-  border: 1px solid red;
+  color: white;
+  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -94,13 +99,13 @@ body {
   margin-bottom: 50px;
   width: 100%;
   height: 70px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .card {
   height: 280px;
   border-radius: 10px;
-  border: 10px solid #fc6262;
+  border: 10px solid #651e60;
   box-shadow:
     0 3px 2px #00000008,
     0 7px 5px #0000000D,
@@ -110,6 +115,15 @@ body {
     0 75px 50px #0000001F;
 }
 
+.bottom {
+  background-image: url(assets/Cityscape-01.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+.text {
+  font-family: 'Lato', sans-serif;
+}
 
 .hidden {
   display: none;
