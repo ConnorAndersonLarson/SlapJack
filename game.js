@@ -6,7 +6,7 @@ class Game {
     this.playerTwo = player2;
     this.newDeck = this.shuffle(freshDeck);
     this.playedCards = [];
-    this.topCard = ''
+    this.topCard = '';
     this.turn = 'Player 1';
     this.winner = '';
     this.slapResult = '';
@@ -22,7 +22,7 @@ class Game {
       var randCard = tempDeck.splice(this.randomizer(52 - i), 1);
       tempDeck.push(randCard[0]);
     }
-    return tempDeck
+    return tempDeck;
   }
 
   deal() {
@@ -39,13 +39,13 @@ class Game {
     if (player.name === this.playerOne.name && this.playerOne.hand[0]) {
       this.playedCards.unshift(player.playCard());
       this.turn = this.playerTwo.name;
-      return this.playedCards[0]
+      return this.playedCards[0];
     } else if (player.name === this.playerTwo.name && this.playerTwo.hand[0]){
       this.playedCards.unshift(player.playCard());
       this.turn = this.playerOne.name;
-      return this.playedCards[0]
+      return this.playedCards[0];
     } else {
-      this.winCheck()
+      this.winCheck();
     }
 
   }
@@ -61,8 +61,8 @@ class Game {
       this.slapResult = '3';
       this.slapJack(player);
     } else {
-      this.slapResult = ''
-      this.badSlap(player)
+      this.slapResult = '';
+      this.badSlap(player);
     }
   }
 
@@ -74,21 +74,21 @@ class Game {
   }
 
   badSlap(player) {
-    var givenCard = player.hand.splice(0,1)
+    var givenCard = player.hand.splice(0,1);
     if (player.name === this.playerOne.name) {
-      this.playerTwo.hand.push(givenCard[0])
+      this.playerTwo.hand.push(givenCard[0]);
     } else if (player.name === this.playerTwo.name) {
-      this.playerOne.hand.push(givenCard[0])
+      this.playerOne.hand.push(givenCard[0]);
     }
   }
 
   winCheck() {
     if (this.playerOne.hand.length === 0) {
       this.winner = this.playerTwo.name;
-       playedCard.innerHTML = `<h2>${this.playerTwo.name} wins!</h2>`
+       playedCard.innerHTML = `<h2>${this.playerTwo.name} wins!</h2>`;
     } else if (this.playerTwo.hand.length === 0) {
       this.winner = this.playerOne.name;
-       playedCard.innerHTML = `<h2>${this.playerOne.name} wins!</h2>`
+       playedCard.innerHTML = `<h2>${this.playerOne.name} wins!</h2>`;
     }
   }
 
