@@ -5,6 +5,9 @@ var instScreen = document.querySelector('#instructionMenu');
 var gameScreen = document.querySelector('#gameWindow');
 var playedCard = document.querySelector('#playedPile');
 var cardCount = document.querySelector('#cardsInPile');
+var slapUpdate = document.querySelector('#gameUpdates');
+var leftWins = document.querySelector('#leftWins');
+var rightWins = document.querySelector('#rightWins');
 
 homeScreen.addEventListener('click', homeScreenPress);
 instScreen.addEventListener('click', returnHome);
@@ -36,6 +39,8 @@ function playerPress(key) {
     game.slapCard(game.playerTwo);
   }
   updateCardCount();
+  updateTopText();
+  gameOver();
 }
 
 function updateCardCount() {
@@ -45,6 +50,29 @@ function updateCardCount() {
   } else {
     playedCard.innerHTML = '';
   }
+}
+
+function gameOver() {
+  if (game.winner === game.playerOne.name) {
+    playedCard.innerHTML = `<h2>${game.playerOne.name} wins!</h2>`;
+    game.slapResult = 'WINNER!'
+    leftWins.innerText = game.playerOne.wins;
+  } else if (game.winner === game.playerTwo.name) {
+    playedCard.innerHTML = `<h2>${game.playerTwo.name} wins!</h2>`;
+    game.slapResult = 'WINNER!'
+    rightWins.innerText = game.playerTwo.wins;
+  }
+  updateTopText();
+  saveWins()
+}
+
+function updateTopText() {
+  slapUpdate.innerText = game.slapResult;
+}
+
+function saveWins() {
+  localStorage.setItem('playerOne', JSON.stringify(game.playerOne.wins))
+  localStorage.setItem('playerTwo', JSON.stringify(game.playerTwo.wins))
 }
 
 function startGame() {
@@ -59,12 +87,12 @@ function showRules() {
 }
 
 function makeGame() {
-  if (localStorage.getItem('savedGame') === null) {
     player1 = new Player('Player 1');
     player2 = new Player('Player 2');
     game = new Game(player1, player2);
+    game.playerOne.wins = JSON.parse(localStorage.getItem('playerOne')) || 0
+    game.playerTwo.wins = JSON.parse(localStorage.getItem('playerTwo')) || 0
+    leftWins.innerText = game.playerOne.wins;
+    rightWins.innerText = game.playerTwo.wins;
     game.deal();
-  } else {
-    game = JSON.parse(localStorage.getItem('savedGame'));
-  }
 }

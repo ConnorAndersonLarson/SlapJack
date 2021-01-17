@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="top spacing">
-      <section id="gameUpdates" class="game-updates">
+      <section class="game-updates"><h3 id="gameUpdates"></h3>
       </section>
     </div>
     <div class="center">
@@ -17,9 +17,24 @@
         <button id="instructions" class="instruction-button" name="instructions">Instructions</button>
       </section>
       <section id="instructionMenu" class="instructions hidden">
-        <section class="instruction">
+        <section class="instruction" name="rules">
+          <p>The objective of SlapJack is to make your opponent run out of cards.</p>
+          <p>At the start of the game a full 52-card deck is shuffled and divided between players.</p>
+          <p>Players take turns placing a random card face up in the middle pile.</p>
+          <p>A player can slap the pile and receive all cards in the pile if:<p>
+            <li>A jack is played</li>
+            <li>Two of the same card are played in a row (6, 6)</li>
+            <li>A card is 'sandwiched' between two of the same cards (8, 6, 8)</li>
+          <p>If a player slaps the cards and no correct card/pairing is present they must give a card to the other player.</p>
         </section>
-        <section class="instruction">
+        <section class="instruction" name="controls">
+          <p>Controls:</p>
+          <p>Player 1</p>
+            <li>Draw Card: 'Q'</li>
+            <li>Slap Pile: 'F'</li>
+          <p>Player 2</p>
+            <li>Draw Card: 'P'</li>
+            <li>Slap Pile: 'J'</p>
         </section>
         <div class="return">
           <button id="return" class="return-button" name="return">Return</button>

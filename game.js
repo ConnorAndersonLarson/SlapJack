@@ -36,13 +36,23 @@ class Game {
   }
 
   playerTurn(player) {
+    if (this.playerOne.hand && this.playerTwo.hand) {
+      this.normalTurn(player)
+    } else {
+      endGameTurn(player)
+    }
+  }
+
+  normalTurn(player) {
     if (player.name === this.playerOne.name && this.playerOne.hand[0]) {
       this.playedCards.unshift(player.playCard());
       this.turn = this.playerTwo.name;
+      this.slapResult = '';
       return this.playedCards[0];
     } else if (player.name === this.playerTwo.name && this.playerTwo.hand[0]){
       this.playedCards.unshift(player.playCard());
       this.turn = this.playerOne.name;
+      this.slapResult = '';
       return this.playedCards[0];
     } else {
       this.winCheck();
@@ -52,16 +62,17 @@ class Game {
 
   slapCard(player) {
     if (this.playedCards[0].name === 'jack') {
-      this.slapResult = '1';
+      this.slapResult = `${player.name} slapped a jack and received the pile!`;
       this.slapJack(player);
     } else if (this.playedCards[1] && this.playedCards[0].name === this.playedCards[1].name) {
-      this.slapResult = '2';
+      this.slapResult = `${player.name} slapped doubles and received the pile!`;
       this.slapJack(player);
     } else if (this.playedCards[2] && this.playedCards[0].name === this.playedCards[2].name) {
-      this.slapResult = '3';
+      this.slapResult = `${player.name} slapped a sandwich and received the pile!`;
       this.slapJack(player);
     } else {
-      this.slapResult = '';
+      this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
+      console.log('test')
       this.badSlap(player);
     }
   }
@@ -85,10 +96,10 @@ class Game {
   winCheck() {
     if (this.playerOne.hand.length === 0) {
       this.winner = this.playerTwo.name;
-       playedCard.innerHTML = `<h2>${this.playerTwo.name} wins!</h2>`;
+      this.playerTwo.saveWinsToStorage();
     } else if (this.playerTwo.hand.length === 0) {
       this.winner = this.playerOne.name;
-       playedCard.innerHTML = `<h2>${this.playerOne.name} wins!</h2>`;
+      this.playerOne.saveWinsToStorage();
     }
   }
 
