@@ -40,7 +40,6 @@ function playerPress(key) {
   }
   updateCardCount();
   updateTopText();
-  gameOver();
 }
 
 function updateCardCount() {
@@ -63,16 +62,10 @@ function gameOver() {
     rightWins.innerText = game.playerTwo.wins;
   }
   updateTopText();
-  saveWins()
 }
 
 function updateTopText() {
   slapUpdate.innerText = game.slapResult;
-}
-
-function saveWins() {
-  localStorage.setItem('playerOne', JSON.stringify(game.playerOne.wins))
-  localStorage.setItem('playerTwo', JSON.stringify(game.playerTwo.wins))
 }
 
 function startGame() {
@@ -90,8 +83,8 @@ function makeGame() {
     player1 = new Player('Player 1');
     player2 = new Player('Player 2');
     game = new Game(player1, player2);
-    game.playerOne.wins = JSON.parse(localStorage.getItem('playerOne')) || 0
-    game.playerTwo.wins = JSON.parse(localStorage.getItem('playerTwo')) || 0
+    game.playerOne.wins = JSON.parse(localStorage.getItem('Player 1')) || 0
+    game.playerTwo.wins = JSON.parse(localStorage.getItem('Player 2')) || 0
     leftWins.innerText = game.playerOne.wins;
     rightWins.innerText = game.playerTwo.wins;
     game.deal();

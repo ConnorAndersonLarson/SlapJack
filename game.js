@@ -18,10 +18,11 @@ class Game {
 
   shuffle(deck) {
     var tempDeck = [...deck];
-    for (let i = 0; i < 52; i++) {
-      var randCard = tempDeck.splice(this.randomizer(52 - i), 1);
+    for (let i = 0; i < tempDeck.length; i++) {
+      var randCard = tempDeck.splice(this.randomizer(tempDeck.length - i), 1);
       tempDeck.push(randCard[0]);
     }
+    console.log(tempDeck)
     return tempDeck;
   }
 
@@ -36,10 +37,10 @@ class Game {
   }
 
   playerTurn(player) {
-    if (this.playerOne.hand && this.playerTwo.hand) {
+    if (this.playerOne.hand.length && this.playerTwo.hand.length) {
       this.normalTurn(player)
     } else {
-      endGameTurn(player)
+      this.endGameTurn(player)
     }
   }
 
@@ -60,7 +61,26 @@ class Game {
 
   }
 
+  endGameTurn(player) {
+    if (this.playerOne.hand.length) {
+      this.normalTurn(player)
+      this.turn = this.playerOne.name;
+    } else if (this.playerTwo.hand.length) {
+      this.normalTurn(player)
+      this.turn = this.playerTwo.name;
+    }
+    this.slapResult = `A player is out of cards! Only jacks are valid slaps!`
+  }
+
   slapCard(player) {
+    if (this.playerOne.hand.length && this.playerTwo.hand.length) {
+      this.normalSlap(player)
+    } else {
+      this.endGameSlap(player)
+    }
+  }
+
+  normalSlap(player) {
     if (this.playedCards[0].name === 'jack') {
       this.slapResult = `${player.name} slapped a jack and received the pile!`;
       this.slapJack(player);
@@ -72,10 +92,22 @@ class Game {
       this.slapJack(player);
     } else {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
-      console.log('test')
       this.badSlap(player);
     }
+    player.hand = this.shuffle(player.hand)
   }
+
+  endGameSlap(player) {
+    if (this.playedCards[0].name === 'jack' && player.hand.length) {
+      this.slapResult = `${player.name} slapped a jack and received the pile!`;
+      this.slapJack(player);
+      this.winCheck();
+    } else {
+      this.slapResult = `${player.name} slapped a jack and received the pile! Back to Normal Rules!`;
+      this.slapJack(player);
+    }
+  }
+
 
   slapJack(player) {
     for (let i = 0; i < this.playedCards.length; i++) {
@@ -101,6 +133,7 @@ class Game {
       this.winner = this.playerOne.name;
       this.playerOne.saveWinsToStorage();
     }
+    gameOver();
   }
 
 
