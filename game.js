@@ -18,10 +18,11 @@ class Game {
 
   shuffle(deck) {
     var tempDeck = [...deck];
-    for (let i = 0; i < 52; i++) {
-      var randCard = tempDeck.splice(this.randomizer(52 - i), 1);
+    for (let i = 0; i < tempDeck.length; i++) {
+      var randCard = tempDeck.splice(this.randomizer(tempDeck.length - i), 1);
       tempDeck.push(randCard[0]);
     }
+    console.log(tempDeck)
     return tempDeck;
   }
 
@@ -60,6 +61,10 @@ class Game {
 
   }
 
+  endGameTurn(player) {
+
+  }
+
   slapCard(player) {
     if (this.playedCards[0].name === 'jack') {
       this.slapResult = `${player.name} slapped a jack and received the pile!`;
@@ -74,6 +79,14 @@ class Game {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
       console.log('test')
       this.badSlap(player);
+    }
+    player.hand = this.shuffle(player.hand)
+  }
+
+  endGameSlap(player) {
+    if (this.playedCards[0].name === 'jack') {
+      this.slapResult = `${player.name} slapped a jack and received the pile!`;
+      this.slapJack(player);
     }
   }
 
