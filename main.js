@@ -8,10 +8,16 @@ var cardCount = document.querySelector('#cardsInPile');
 var slapUpdate = document.querySelector('#gameUpdates');
 var leftWins = document.querySelector('#leftWins');
 var rightWins = document.querySelector('#rightWins');
+var newGameButton = document.querySelector('#newGame');
 
 homeScreen.addEventListener('click', homeScreenPress);
 instScreen.addEventListener('click', returnHome);
+newGameButton.addEventListener('click', newGamePress)
 document.addEventListener('keydown', playerPress);
+
+function showNewGame() {
+  newGame.classList.toggle('hidden');
+}
 
 function homeScreenPress() {
   if (event.target.id === 'play') {
@@ -43,7 +49,7 @@ function playerPress(key) {
 }
 
 function updateCardCount() {
-  cardCount.innerText = game.playedCards.length;
+  cardCount.innerText = game.playedCards.length || '0';
   if (game.playedCards[0]) {
     playedCard.innerHTML = game.playedCards[0].image;
   } else {
@@ -77,6 +83,12 @@ function startGame() {
 function showRules() {
   homeScreen.classList.toggle('hidden');
   instScreen.classList.toggle('hidden');
+}
+
+function newGamePress() {
+  showNewGame()
+  makeGame()
+  updateTopText()
 }
 
 function makeGame() {

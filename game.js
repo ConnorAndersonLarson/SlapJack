@@ -22,7 +22,6 @@ class Game {
       var randCard = tempDeck.splice(this.randomizer(tempDeck.length - i), 1);
       tempDeck.push(randCard[0]);
     }
-    console.log(tempDeck)
     return tempDeck;
   }
 
@@ -102,6 +101,9 @@ class Game {
       this.slapResult = `${player.name} slapped a jack and received the pile!`;
       this.slapJack(player);
       this.winCheck();
+    } else if (this.playedCards[0].name !== 'jack' && !player.hand.length) {
+      this.slapResult = 'Bad Slap!'
+      this.winCheck();
     } else {
       this.slapResult = `${player.name} slapped a jack and received the pile! Back to Normal Rules!`;
       this.slapJack(player);
@@ -134,8 +136,7 @@ class Game {
       this.playerOne.saveWinsToStorage();
     }
     gameOver();
+    showNewGame();
   }
-
-
 
 }

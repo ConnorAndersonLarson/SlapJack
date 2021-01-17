@@ -134,6 +134,13 @@ button:hover {
   background-image: url(assets/Cityscape-01.png);
   background-repeat: repeat-x;
   background-size: contain;
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.new-button {
+  background: none;
 }
 
 .text {
