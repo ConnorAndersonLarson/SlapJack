@@ -92,7 +92,6 @@ class Game {
       this.slapJack(player);
     } else {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
-      console.log('test')
       this.badSlap(player);
     }
     player.hand = this.shuffle(player.hand)
@@ -102,20 +101,13 @@ class Game {
     if (this.playedCards[0].name === 'jack' && player.hand.length) {
       this.slapResult = `${player.name} slapped a jack and received the pile!`;
       this.slapJack(player);
-      gameOver();
+      this.winCheck();
     } else {
       this.slapResult = `${player.name} slapped a jack and received the pile! Back to Normal Rules!`;
       this.slapJack(player);
     }
   }
 
-  endGameSlap(player) {
-    if (this.playedCards[0].name === 'jack') {
-      this.slapResult = `${player.name} slapped a jack and received the pile!`;
-      this.slapJack(player);
-      this.winCheck();
-    }
-  }
 
   slapJack(player) {
     for (let i = 0; i < this.playedCards.length; i++) {

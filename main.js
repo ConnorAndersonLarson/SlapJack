@@ -40,7 +40,6 @@ function playerPress(key) {
   }
   updateCardCount();
   updateTopText();
-  //gameOver();
 }
 
 function updateCardCount() {
@@ -63,17 +62,11 @@ function gameOver() {
     rightWins.innerText = game.playerTwo.wins;
   }
   updateTopText();
-  //saveWins()
 }
 
 function updateTopText() {
   slapUpdate.innerText = game.slapResult;
 }
-
-// function saveWins() {
-//   localStorage.setItem('playerOne', JSON.stringify(game.playerOne.wins))
-//   localStorage.setItem('playerTwo', JSON.stringify(game.playerTwo.wins))
-// }
 
 function startGame() {
     homeScreen.classList.toggle('hidden');
