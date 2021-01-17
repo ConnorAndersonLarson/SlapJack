@@ -57,8 +57,7 @@ button:hover {
   text-shadow:
     0 0 20px #3b1263,
     0 0 30px #571263,
-    0 0 3px #fc6262,
-    inset 0 0 5px #2d0f4b;
+    0 0 3px #fc6262;
   margin-bottom: 75px;
   font-size: 75px
 }
