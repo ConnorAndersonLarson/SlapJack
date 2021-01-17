@@ -37,9 +37,9 @@ class Game {
 
   playerTurn(player) {
     if (this.playerOne.hand.length && this.playerTwo.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
     } else {
-      this.endGameTurn(player)
+      this.endGameTurn(player);
     }
   }
 
@@ -62,20 +62,20 @@ class Game {
 
   endGameTurn(player) {
     if (this.playerOne.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
       this.turn = this.playerOne.name;
     } else if (this.playerTwo.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
       this.turn = this.playerTwo.name;
     }
-    this.slapResult = `A player is out of cards! Only jacks are valid slaps!`
+    this.slapResult = `A player is out of cards! Only jacks are valid slaps!`;
   }
 
   slapCard(player) {
     if (this.playerOne.hand.length && this.playerTwo.hand.length) {
-      this.normalSlap(player)
+      this.normalSlap(player);
     } else {
-      this.endGameSlap(player)
+      this.endGameSlap(player);
     }
   }
 
@@ -93,7 +93,7 @@ class Game {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
       this.badSlap(player);
     }
-    player.hand = this.shuffle(player.hand)
+    player.hand = this.shuffle(player.hand);
   }
 
   endGameSlap(player) {
@@ -102,7 +102,7 @@ class Game {
       this.slapJack(player);
       this.winCheck();
     } else if (this.playedCards[0].name !== 'jack' && !player.hand.length) {
-      this.slapResult = 'Bad Slap!'
+      this.slapResult = 'Bad Slap!';
       this.winCheck();
     } else {
       this.slapResult = `${player.name} slapped a jack and received the pile! Back to Normal Rules!`;

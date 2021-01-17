@@ -7,7 +7,7 @@ class Player {
 
   saveWinsToStorage() {
     this.wins+=1;
-    localStorage.setItem(`${this.name}`, JSON.stringify(this.wins))
+    localStorage.setItem(`${this.name}`, JSON.stringify(this.wins));
   }
 
   playCard() {

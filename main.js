@@ -12,7 +12,7 @@ var newGameButton = document.querySelector('#newGame');
 
 homeScreen.addEventListener('click', homeScreenPress);
 instScreen.addEventListener('click', returnHome);
-newGameButton.addEventListener('click', newGamePress)
+newGameButton.addEventListener('click', newGamePress);
 document.addEventListener('keydown', playerPress);
 
 function showNewGame() {
@@ -60,11 +60,11 @@ function updateCardCount() {
 function gameOver() {
   if (game.winner === game.playerOne.name) {
     playedCard.innerHTML = `<h2>${game.playerOne.name} wins!</h2>`;
-    game.slapResult = 'WINNER!'
+    game.slapResult = 'WINNER!';
     leftWins.innerText = game.playerOne.wins;
   } else if (game.winner === game.playerTwo.name) {
     playedCard.innerHTML = `<h2>${game.playerTwo.name} wins!</h2>`;
-    game.slapResult = 'WINNER!'
+    game.slapResult = 'WINNER!';
     rightWins.innerText = game.playerTwo.wins;
   }
   updateTopText();
@@ -77,7 +77,7 @@ function updateTopText() {
 function startGame() {
     homeScreen.classList.toggle('hidden');
     gameScreen.classList.toggle('hidden');
-    makeGame()
+    makeGame();
 }
 
 function showRules() {
@@ -86,17 +86,17 @@ function showRules() {
 }
 
 function newGamePress() {
-  showNewGame()
-  makeGame()
-  updateTopText()
+  showNewGame();
+  makeGame();
+  updateTopText();
 }
 
 function makeGame() {
     player1 = new Player('Player 1');
     player2 = new Player('Player 2');
     game = new Game(player1, player2);
-    game.playerOne.wins = JSON.parse(localStorage.getItem('Player 1')) || 0
-    game.playerTwo.wins = JSON.parse(localStorage.getItem('Player 2')) || 0
+    game.playerOne.wins = JSON.parse(localStorage.getItem('Player 1')) || 0;
+    game.playerTwo.wins = JSON.parse(localStorage.getItem('Player 2')) || 0;
     leftWins.innerText = game.playerOne.wins;
     rightWins.innerText = game.playerTwo.wins;
     game.deal();
