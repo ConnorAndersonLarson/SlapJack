@@ -25,10 +25,10 @@ Clone the repo to your terminal and open index.html in your browser. Read the in
 
 ## Project Details  
 Start Menu and Hover states  
-[Start Game](/.github/README/Start Game.gif)  
+<img src="/.github/README/Start Game.gif">  
 
 Instruction Menu  
-[Instruction Menu](/.github/README/Instructions.gif)  
+<img src="./.github/README/Instructions.gif">  
 
 __Game Functionality__
 SlapJack   
