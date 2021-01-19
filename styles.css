@@ -7,12 +7,23 @@ body {
   align-items: center;
   margin: 0;
   height: 100vh;
+  background-image: url(assets/Cityscape-01.png);
+  background-position: left bottom ;
+  background-size: 25%;
+  background-repeat: repeat-x;
 }
 
-.spacing {
+h2 {
+  opacity: 50%;
+}
+
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.spacing {
   width: 100%;
   min-height: 20%;
   box-sizing: border-box;
@@ -26,17 +37,11 @@ body {
   width: 100%;
   min-height: 65%;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .start-menu {
   color: #fc6262;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 80%
 }
 
@@ -67,10 +72,7 @@ button:hover {
 }
 
 .instructions {
-  display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
 }
@@ -78,7 +80,7 @@ button:hover {
 .instruction {
   box-sizing: border-box;
   width: 45%;
-  min-height: 90%;
+  height: 90%;
   padding:20px;
   border-radius: 5px;
   margin: 10px;
@@ -87,22 +89,15 @@ button:hover {
     0 0 15px #571263,
     inset 0 0 10px #fc6262,
     inset 0 0 15px #571263;
-  z-index: 1;
 }
 
 .return {
   box-sizing: border-box;
   width: 100%;
   height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .game {
-  display:flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
 }
@@ -111,16 +106,13 @@ button:hover {
   color: white;
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
 }
 
 .details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 50px;
   width: 100%;
   height: 70px;
@@ -152,22 +144,9 @@ button:hover {
     0 75px 50px #f0ed9b1F;
 }
 
-.bottom {
-  background-image: url(assets/Cityscape-01.png);
-  background-repeat: repeat-x;
-  background-size: contain;
-  display:flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 0;
-}
-
-/* .new-button {
-  background: none;
-} */
-
-.text {
+.text > * {
   font-family: 'Lato', sans-serif;
+  margin: 5px;
 }
 
 .hidden {

@@ -6,17 +6,18 @@
     <title>SlapJack</title>
   </head>
   <body>
-    <div class="top spacing">
-      <section class="game-updates"><h3 id="gameUpdates"></h3>
+    <header class="top flex spacing">
+      <section>
+        <h3 id="gameUpdates" class="hidden" name="Updates for in game events."></h3>
       </section>
-    </div>
-    <div class="center">
-      <section id="startMenu" class="start-menu">
+    </header>
+    <main class="flex center">
+      <section id="startMenu" class="flex start-menu">
         <h1 class="title">SlapJack!</h1>
-        <button id="play" class="play" name="play">PLAY!</button>
-        <button id="instructions" class="instruction-button" name="instructions">Instructions</button>
+        <button id="play" name="play">PLAY!</button>
+        <button id="instructions" name="instructions">Instructions</button>
       </section>
-      <section id="instructionMenu" class="instructions hidden">
+      <section id="instructionMenu" class="flex instructions hidden">
         <section class="instruction" name="rules">
           <p>The objective of SlapJack is to make your opponent run out of cards.</p>
           <p>At the start of the game a full 52-card deck is shuffled and divided between players.</p>
@@ -40,38 +41,39 @@
             <li>Draw Card: 'P'</li>
             <li>Slap Pile: 'J'</p>
         </section>
-        <div class="return">
-          <button id="return" class="return-button" name="return">Return</button>
+        <div class="flex return">
+          <button id="return" name="return">Return</button>
         </div>
       </section>
-      <div id="gameWindow" class="game hidden">
-        <div class="left column">
-          <section id="leftDetails" class="details">
-            <h3>Wins: </h3><h3 id="leftWins"> 0</h3>
+      <div id="gameWindow" class="flex game hidden">
+        <div class="left flex column">
+          <section class="text flex details">
+            <h2>Wins: </h2><h2 id="leftWins"> 0</h2>
           </section>
-          <section id="leftCardDeck" class="left-card deck">
+          <section class="left-card">
             <img src="assets/back.png" class="card" alt="Facedown Card">
           </section>
         </div>
-        <div class="middle column">
-          <section id="middleDetails" class="details">
-            <h3>Cards in Pile:</h3><h3 id="cardsInPile">0</h3>
+        <div class="middle flex column">
+          <section class="text flex details">
+            <h3>Cards in Pile:</h3>
+            <h3 id="cardsInPile">0</h3>
+            <button id="newGame" class="hidden" name="new game">New Game</button>
           </section>
-          <section id="playedPile" class="deck">
+          <section id="playedPile">
         </div>
-        <div class="right column">
-          <section id="rightDetails" class="details">
-            <h3>Wins: </h3><h3 id="rightWins"> 0</h3>
+        <div class="right flex column">
+          <section class="text flex details">
+            <h2>Wins: </h2><h2 id="rightWins"> 0</h2>
           </section>
-          <section id="rightCardDeck" class="right-card deck">
+          <section class="right-card">
             <img src="assets/back.png" class="card" alt="Facedown Card">
           </section>
         </div>
       </div>
-    </div>
-    <div class="bottom spacing">
-      <button id="newGame" class="new-button hidden" name="new game">New Game</button>
-    </div>
+    </main>
+    <footer class="bottom flex spacing">
+    </footer>
   </body>
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="game.js"></script>

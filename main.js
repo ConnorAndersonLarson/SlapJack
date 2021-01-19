@@ -17,6 +17,7 @@ document.addEventListener('keydown', playerPress);
 
 function showNewGame() {
   newGameButton.classList.toggle('hidden');
+  cardCount.classList.toggle('hidden');
 }
 
 function homeScreenPress() {
@@ -79,6 +80,7 @@ function updateTopText() {
 function startGame() {
     homeScreen.classList.toggle('hidden');
     gameScreen.classList.toggle('hidden');
+    slapUpdate.classList.remove('hidden');
     makeGame();
 }
 
