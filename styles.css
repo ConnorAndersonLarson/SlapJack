@@ -132,7 +132,7 @@ button:hover {
   border: 10px solid #651e60;
 }
 
-.left-card {
+.left-card > img {
   box-shadow:
     0 3px 2px #fc626208,
     0 7px 5px #fc62620D,
@@ -142,7 +142,7 @@ button:hover {
     0 75px 50px #fc62621F;
 }
 
-.right-card {
+.right-card > img {
   box-shadow:
     0 3px 2px #f0ed9b08,
     0 7px 5px #f0ed9b0D,

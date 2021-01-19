@@ -94,7 +94,8 @@ function newGamePress() {
 }
 
 function updateCardShadow(className) {
-  playedCard.classList.remove('right-card' || 'left-card');
+  playedCard.classList.remove('left-card');
+  playedCard.classList.remove('right-card')
   playedCard.classList.add(className);
 }
 
