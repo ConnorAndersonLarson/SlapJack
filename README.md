@@ -28,33 +28,33 @@ Start Menu and Hover states
 <img src="/.github/README/Start Game.gif">  
 
 Instruction Menu  
-<img src="./.github/README/Instructions.gif">  
+<img src="/.github/README/Instructions.gif">  
 
 __Game Functionality__
 SlapJack   
-[SlapJack](/.github/README/Card Count and SlapJack.gif)  
+<img src="/.github/README/Card Count and SlapJack.gif">  
 
 Doubles  
-[Doubles Slap](/.github/README/Double Slap.gif)  
+<img src="/.github/README/Double Slap.gif">  
 
 Sandwich  
-[Sandwich Slap](/.github/README/Sandwich Slap.gif)  
+<img src="/.github/README/Sandwich Slap.gif">  
 
 __Endgame Functionality__
 Notification  
-[Notification](/.github/README/EndGame Notification.gif)  
+<img src="/.github/README/EndGame Notification.gif">  
 
 Reshuffle  
-[Reshuffle](/.github/README/EndGame Reshuffle.gif)  
+<img src="/.github/README/EndGame Reshuffle.gif">  
 
 Return to Normal  
-![Return to Normal Rules](./.github/README/Return to Normal Rules.gif)  
+<img src="./.github/README/Return to Normal Rules.gif">  
 
 Winning  
-[Winning the Game](./.github/README/Winning Game.gif)  
+<img src="./.github/README/Winning Game.gif">  
 
 New Game  
-![Start a New Game After a Game is Completed](/.gihub/README/New Game.gif)  
+<img src="/.gihub/README/New Game.gif">  
 
 Persistent Wins  
-![Wins Persist Across Reloads](/.github/README/Persistent Wins.gif)  
+<img src="/.github/README/Persistent Wins.gif">  
