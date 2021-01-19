@@ -24,27 +24,37 @@ This site is a fully functional version of the game 'SlapJack'. User Additions o
 Clone the repo to your terminal and open index.html in your browser. Read the instructions (under instructions) before starting a new game to ensure familiarity with controls.  
 
 ## Project Details  
-Start Menu and Hover states
-![Start Game](/.gihub/README/Start Game.gif)  
-Instruction Menu
-![](/.gihub/README/Instructions.gif)  
+Start Menu and Hover states  
+[Start Game](/.github/README/Start Game.gif)  
+
+Instruction Menu  
+[Instruction Menu](/.github/README/Instructions.gif)  
+
 __Game Functionality__
-SlapJack
-![](/.gihub/README/Card Count and SlapJack.gif)  
-Doubles
-![](/.gihub/README/Double Slap.gif)  
-Sandwich
-![](/.gihub/README/Sandwich Slap.gif)  
+SlapJack   
+[SlapJack](/.github/README/Card Count and SlapJack.gif)  
+
+Doubles  
+[Doubles Slap](/.github/README/Double Slap.gif)  
+
+Sandwich  
+[Sandwich Slap](/.github/README/Sandwich Slap.gif)  
+
 __Endgame Functionality__
-Notification
-![](/.gihub/README/EndGame Notification.gif)  
-Reshuffle
-![](/.gihub/README/EndGame Reshuffle.gif)  
-Return to Normal
-![](/.gihub/README/Return to Normal Rules.gif)  
-Winning
-![](/.gihub/README/Winning Game.gif)  
-New Game
-![](/.gihub/README/New Game.gif)  
-Persistent Wins
-![](/.gihub/README/Persistent Wins.gif)  
+Notification  
+[Notification](/.github/README/EndGame Notification.gif)  
+
+Reshuffle  
+[Reshuffle](/.github/README/EndGame Reshuffle.gif)  
+
+Return to Normal  
+![Return to Normal Rules](./.github/README/Return to Normal Rules.gif)  
+
+Winning  
+[Winning the Game](./.github/README/Winning Game.gif)  
+
+New Game  
+![Start a New Game After a Game is Completed](/.gihub/README/New Game.gif)  
+
+Persistent Wins  
+![Wins Persist Across Reloads](/.github/README/Persistent Wins.gif)  
