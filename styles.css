@@ -18,9 +18,13 @@ body {
   box-sizing: border-box;
 }
 
+.top{
+  min-height: 15%;
+}
+
 .center {
   width: 100%;
-  min-height: 60%;
+  min-height: 65%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -126,13 +130,26 @@ button:hover {
   height: 280px;
   border-radius: 10px;
   border: 10px solid #651e60;
+}
+
+.left-card {
   box-shadow:
-    0 3px 2px #00000008,
-    0 7px 5px #0000000D,
-    0 13px 10px #0000000F,
-    0 22px 18px #00000012,
-    0 42px 33px #00000014,
-    0 75px 50px #0000001F;
+    0 3px 2px #fc626208,
+    0 7px 5px #fc62620D,
+    0 13px 10px #fc62620F,
+    0 22px 18px #fc626212,
+    0 42px 33px #fc626214,
+    0 75px 50px #fc62621F;
+}
+
+.right-card {
+  box-shadow:
+    0 3px 2px #f0ed9b08,
+    0 7px 5px #f0ed9b0D,
+    0 13px 10px #f0ed9b0F,
+    0 22px 18px #f0ed9b12,
+    0 42px 33px #f0ed9b14,
+    0 75px 50px #f0ed9b1F;
 }
 
 .bottom {
@@ -142,12 +159,12 @@ button:hover {
   display:flex;
   align-items: flex-start;
   justify-content: center;
-  z-index: -1;
+  z-index: 0;
 }
 
-.new-button {
+/* .new-button {
   background: none;
-}
+} */
 
 .text {
   font-family: 'Lato', sans-serif;

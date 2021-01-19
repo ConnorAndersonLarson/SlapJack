@@ -16,7 +16,7 @@ newGameButton.addEventListener('click', newGamePress);
 document.addEventListener('keydown', playerPress);
 
 function showNewGame() {
-  newGame.classList.toggle('hidden');
+  newGameButton.classList.toggle('hidden');
 }
 
 function homeScreenPress() {
@@ -37,8 +37,10 @@ function playerPress(key) {
   var yourCard = '';
   if (game.turn === 'Player 1' && key.key === 'q') {
     game.playerTurn(game.playerOne);
+    updateCardShadow('left-card')
   } else if (game.turn === 'Player 2' && key.key === 'p') {
     game.playerTurn(game.playerTwo);
+    updateCardShadow('right-card')
   } else if (game.turn && key.key === 'f' && game.playedCards[0]) {
     game.slapCard(game.playerOne);
   } else if (game.turn && key.key === 'j' && game.playedCards[0]) {
@@ -89,6 +91,11 @@ function newGamePress() {
   showNewGame();
   makeGame();
   updateTopText();
+}
+
+function updateCardShadow(className) {
+  playedCard.classList.remove('right-card' || 'left-card');
+  playedCard.classList.add(className);
 }
 
 function makeGame() {
