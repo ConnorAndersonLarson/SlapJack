@@ -1,12 +1,9 @@
-
-
 class Game {
   constructor(player1, player2) {
     this.playerOne = player1;
     this.playerTwo = player2;
     this.newDeck = this.shuffle(freshDeck);
     this.playedCards = [];
-    this.topCard = '';
     this.turn = 'Player 1';
     this.winner = '';
     this.slapResult = '';
@@ -22,7 +19,6 @@ class Game {
       var randCard = tempDeck.splice(this.randomizer(tempDeck.length - i), 1);
       tempDeck.push(randCard[0]);
     }
-    console.log(tempDeck)
     return tempDeck;
   }
 
@@ -38,9 +34,9 @@ class Game {
 
   playerTurn(player) {
     if (this.playerOne.hand.length && this.playerTwo.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
     } else {
-      this.endGameTurn(player)
+      this.endGameTurn(player);
     }
   }
 
@@ -58,25 +54,32 @@ class Game {
     } else {
       this.winCheck();
     }
-
   }
 
   endGameTurn(player) {
+    this.reshuffle(player);
     if (this.playerOne.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
       this.turn = this.playerOne.name;
     } else if (this.playerTwo.hand.length) {
-      this.normalTurn(player)
+      this.normalTurn(player);
       this.turn = this.playerTwo.name;
     }
-    this.slapResult = `A player is out of cards! Only jacks are valid slaps!`
+    this.slapResult = `A player is out of cards! Only jacks are valid slaps!`;
+  }
+
+  reshuffle(player) {
+    if (this.playedCards.length === 52) {
+      player.hand = this.shuffle(this.playedCards);
+      this.playedCards = [];
+    }
   }
 
   slapCard(player) {
     if (this.playerOne.hand.length && this.playerTwo.hand.length) {
-      this.normalSlap(player)
+      this.normalSlap(player);
     } else {
-      this.endGameSlap(player)
+      this.endGameSlap(player);
     }
   }
 
@@ -94,7 +97,6 @@ class Game {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
       this.badSlap(player);
     }
-    player.hand = this.shuffle(player.hand)
   }
 
   endGameSlap(player) {
@@ -102,18 +104,21 @@ class Game {
       this.slapResult = `${player.name} slapped a jack and received the pile!`;
       this.slapJack(player);
       this.winCheck();
+    } else if (this.playedCards[0].name !== 'jack' && !player.hand.length) {
+      this.slapResult = 'Bad Slap!';
+      this.winCheck();
     } else {
       this.slapResult = `${player.name} slapped a jack and received the pile! Back to Normal Rules!`;
       this.slapJack(player);
     }
   }
 
-
   slapJack(player) {
     for (let i = 0; i < this.playedCards.length; i++) {
       player.hand.push(this.playedCards[i]);
     }
     this.playedCards = [];
+    player.hand = this.shuffle(player.hand);
   }
 
   badSlap(player) {
@@ -134,8 +139,7 @@ class Game {
       this.playerOne.saveWinsToStorage();
     }
     gameOver();
+    showNewGame();
   }
-
-
 
 }

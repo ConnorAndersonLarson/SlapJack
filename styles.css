@@ -7,35 +7,42 @@ body {
   align-items: center;
   margin: 0;
   height: 100vh;
+  background-image: url(assets/Cityscape-01.png);
+  background-position: left bottom ;
+  background-size: 25%;
+  background-repeat: repeat-x;
 }
 
-.spacing {
+h2 {
+  opacity: 50%;
+}
+
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
+}
+
+.spacing {
   width: 100%;
   min-height: 20%;
   box-sizing: border-box;
 }
 
+.top{
+  min-height: 15%;
+}
+
 .center {
-  /* border: 1px solid red; */
   width: 100%;
-  min-height: 60%;
+  min-height: 65%;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .start-menu {
   color: #fc6262;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80%
+  height: 80%;
 }
 
 .start-menu > button {
@@ -44,7 +51,7 @@ body {
 
 button {
   border: none;
-  background-color: #2d0f4b;
+  background: none;
   color: #fc6262;
   font-size: 20px;
   transition: text-shadow 0.5s ease;
@@ -56,88 +63,90 @@ button:hover {
 }
 
 .title {
-  text-shadow: 0 0 20px #3b1263, 0 0 30px #571263,0 0 3px #fc6262 ;
+  text-shadow:
+    0 0 20px #3b1263,
+    0 0 30px #571263,
+    0 0 3px #fc6262;
   margin-bottom: 75px;
-  font-size: 75px
+  font-size: 75px;
 }
 
 .instructions {
-  display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
 }
 
 .instruction {
   box-sizing: border-box;
-  width: 50%;
+  width: 45%;
   height: 90%;
   padding:20px;
-  box-shadow: inset 0 0 10px #fc6262, inset 0 0 15px #571263;
-  box-shadow: 0 0 10px #fc6262, 0 0 15px #571263;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow:
+    0 0 10px #fc6262,
+    0 0 15px #571263,
+    inset 0 0 10px #fc6262,
+    inset 0 0 15px #571263;
 }
 
 .return {
   box-sizing: border-box;
   width: 100%;
   height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .game {
-  display:flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
 }
 
 .column {
   color: white;
-  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
 }
 
 .details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 50px;
   width: 100%;
   height: 70px;
-  /* border: 1px solid red; */
 }
 
 .card {
   height: 280px;
   border-radius: 10px;
   border: 10px solid #651e60;
+}
+
+.left-card > img {
   box-shadow:
-    0 3px 2px #00000008,
-    0 7px 5px #0000000D,
-    0 13px 10px #0000000F,
-    0 22px 18px #00000012,
-    0 42px 33px #00000014,
-    0 75px 50px #0000001F;
+    0 3px 2px #fc626208,
+    0 7px 5px #fc62620D,
+    0 13px 10px #fc62620F,
+    0 22px 18px #fc626212,
+    0 42px 33px #fc626214,
+    0 75px 50px #fc62621F;
 }
 
-.bottom {
-  background-image: url(assets/Cityscape-01.png);
-  background-repeat: repeat-x;
-  background-size: contain;
+.right-card > img {
+  box-shadow:
+    0 3px 2px #f0ed9b08,
+    0 7px 5px #f0ed9b0D,
+    0 13px 10px #f0ed9b0F,
+    0 22px 18px #f0ed9b12,
+    0 42px 33px #f0ed9b14,
+    0 75px 50px #f0ed9b1F;
 }
 
-.text {
+.text > * {
   font-family: 'Lato', sans-serif;
+  margin: 5px;
 }
 
 .hidden {
