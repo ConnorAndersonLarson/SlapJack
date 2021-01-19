@@ -93,7 +93,6 @@ class Game {
       this.slapResult = `${player.name} made a bad slap! The other player gets a card!`;
       this.badSlap(player);
     }
-    player.hand = this.shuffle(player.hand);
   }
 
   endGameSlap(player) {
@@ -116,6 +115,7 @@ class Game {
       player.hand.push(this.playedCards[i]);
     }
     this.playedCards = [];
+    player.hand = this.shuffle(player.hand);
   }
 
   badSlap(player) {

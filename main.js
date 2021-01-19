@@ -91,6 +91,7 @@ function newGamePress() {
   showNewGame();
   makeGame();
   updateTopText();
+  updateCardCount();
 }
 
 function updateCardShadow(className) {
