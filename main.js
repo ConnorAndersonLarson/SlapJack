@@ -103,11 +103,11 @@ function updateCardShadow(className) {
 function gameOver() {
   if (game.winner === game.playerOne.name) {
     playedCard.innerHTML = `<h2>${game.playerOne.name} wins!</h2>`;
-    game.slapResult = 'WINNER!';
+    game.slapResult = `${game.winner} HAS WON!`;
     leftWins.innerText = game.playerOne.wins;
   } else if (game.winner === game.playerTwo.name) {
     playedCard.innerHTML = `<h2>${game.playerTwo.name} wins!</h2>`;
-    game.slapResult = 'WINNER!';
+    game.slapResult = `${game.winner} HAS WON!`;
     rightWins.innerText = game.playerTwo.wins;
   }
   updateTopText();
