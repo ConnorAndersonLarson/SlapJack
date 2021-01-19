@@ -42,7 +42,7 @@ h2 {
 .start-menu {
   color: #fc6262;
   flex-direction: column;
-  height: 80%
+  height: 80%;
 }
 
 .start-menu > button {
@@ -68,7 +68,7 @@ button:hover {
     0 0 30px #571263,
     0 0 3px #fc6262;
   margin-bottom: 75px;
-  font-size: 75px
+  font-size: 75px;
 }
 
 .instructions {

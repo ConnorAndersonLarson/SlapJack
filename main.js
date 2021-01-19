@@ -13,12 +13,7 @@ var newGameButton = document.querySelector('#newGame');
 homeScreen.addEventListener('click', homeScreenPress);
 instScreen.addEventListener('click', returnHome);
 newGameButton.addEventListener('click', newGamePress);
-document.addEventListener('keydown', playerPress);
-
-function showNewGame() {
-  newGameButton.classList.toggle('hidden');
-  cardCount.classList.toggle('hidden');
-}
+document.addEventListener('keydown', playerKeyPress);
 
 function homeScreenPress() {
   if (event.target.id === 'play') {
@@ -34,7 +29,14 @@ function returnHome() {
   }
 }
 
-function playerPress(key) {
+function newGamePress() {
+  showNewGame();
+  makeGame();
+  updateTopText();
+  updateCardCount();
+}
+
+function playerKeyPress(key) {
   var yourCard = '';
   if (game.turn === 'Player 1' && key.key === 'q') {
     game.playerTurn(game.playerOne);
@@ -51,6 +53,38 @@ function playerPress(key) {
   updateTopText();
 }
 
+function startGame() {
+  homeScreen.classList.toggle('hidden');
+  gameScreen.classList.toggle('hidden');
+  slapUpdate.classList.remove('hidden');
+  makeGame();
+}
+
+function showRules() {
+  homeScreen.classList.toggle('hidden');
+  instScreen.classList.toggle('hidden');
+}
+
+function showNewGame() {
+  newGameButton.classList.toggle('hidden');
+  cardCount.classList.toggle('hidden');
+}
+
+function makeGame() {
+  player1 = new Player('Player 1');
+  player2 = new Player('Player 2');
+  game = new Game(player1, player2);
+  game.playerOne.wins = JSON.parse(localStorage.getItem('Player 1')) || 0;
+  game.playerTwo.wins = JSON.parse(localStorage.getItem('Player 2')) || 0;
+  leftWins.innerText = game.playerOne.wins;
+  rightWins.innerText = game.playerTwo.wins;
+  game.deal();
+}
+
+function updateTopText() {
+  slapUpdate.innerText = game.slapResult;
+}
+
 function updateCardCount() {
   cardCount.innerText = game.playedCards.length || '0';
   if (game.playedCards[0]) {
@@ -58,6 +92,12 @@ function updateCardCount() {
   } else {
     playedCard.innerHTML = '';
   }
+}
+
+function updateCardShadow(className) {
+  playedCard.classList.remove('left-card');
+  playedCard.classList.remove('right-card');
+  playedCard.classList.add(className);
 }
 
 function gameOver() {
@@ -71,44 +111,4 @@ function gameOver() {
     rightWins.innerText = game.playerTwo.wins;
   }
   updateTopText();
-}
-
-function updateTopText() {
-  slapUpdate.innerText = game.slapResult;
-}
-
-function startGame() {
-    homeScreen.classList.toggle('hidden');
-    gameScreen.classList.toggle('hidden');
-    slapUpdate.classList.remove('hidden');
-    makeGame();
-}
-
-function showRules() {
-  homeScreen.classList.toggle('hidden');
-  instScreen.classList.toggle('hidden');
-}
-
-function newGamePress() {
-  showNewGame();
-  makeGame();
-  updateTopText();
-  updateCardCount();
-}
-
-function updateCardShadow(className) {
-  playedCard.classList.remove('left-card');
-  playedCard.classList.remove('right-card')
-  playedCard.classList.add(className);
-}
-
-function makeGame() {
-    player1 = new Player('Player 1');
-    player2 = new Player('Player 2');
-    game = new Game(player1, player2);
-    game.playerOne.wins = JSON.parse(localStorage.getItem('Player 1')) || 0;
-    game.playerTwo.wins = JSON.parse(localStorage.getItem('Player 2')) || 0;
-    leftWins.innerText = game.playerOne.wins;
-    rightWins.innerText = game.playerTwo.wins;
-    game.deal();
 }

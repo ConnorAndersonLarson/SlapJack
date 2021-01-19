@@ -1,12 +1,9 @@
-
-
 class Game {
   constructor(player1, player2) {
     this.playerOne = player1;
     this.playerTwo = player2;
     this.newDeck = this.shuffle(freshDeck);
     this.playedCards = [];
-    this.topCard = '';
     this.turn = 'Player 1';
     this.winner = '';
     this.slapResult = '';
@@ -57,10 +54,10 @@ class Game {
     } else {
       this.winCheck();
     }
-
   }
 
   endGameTurn(player) {
+    this.reshuffle(player);
     if (this.playerOne.hand.length) {
       this.normalTurn(player);
       this.turn = this.playerOne.name;
@@ -69,6 +66,13 @@ class Game {
       this.turn = this.playerTwo.name;
     }
     this.slapResult = `A player is out of cards! Only jacks are valid slaps!`;
+  }
+
+  reshuffle(player) {
+    if (this.playedCards.length === 52) {
+      player.hand = this.shuffle(this.playedCards);
+      this.playedCards = [];
+    }
   }
 
   slapCard(player) {
@@ -108,7 +112,6 @@ class Game {
       this.slapJack(player);
     }
   }
-
 
   slapJack(player) {
     for (let i = 0; i < this.playedCards.length; i++) {

@@ -1,8 +1,8 @@
 class Player {
   constructor(name){
-    this.name = name,
-    this.hand = [],
-    this.wins = 0
+    this.name = name;
+    this.hand = [];
+    this.wins = 0;
   }
 
   saveWinsToStorage() {
