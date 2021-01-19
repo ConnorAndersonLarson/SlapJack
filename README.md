@@ -45,7 +45,7 @@ Notification
 <img src="/.github/README/EndGame Notification.gif">  
 
 Reshuffle  
-<img src="/.github/README/EndGame Reshuffle.gif">  
+<img src="/.github/README/Endgame Reshuffle.gif">  
 
 Return to Normal  
 <img src="./.github/README/Return to Normal Rules.gif">  
@@ -54,7 +54,7 @@ Winning
 <img src="./.github/README/Winning Game.gif">  
 
 New Game  
-<img src="/.gihub/README/New Game.gif">  
+<img src="/.github/README/New Game.gif">  
 
 Persistent Wins  
 <img src="/.github/README/Persistent Wins.gif">  
